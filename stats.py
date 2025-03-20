@@ -11,3 +11,19 @@ def count_chars(content):
         else:
             charList[char] = 1
     return charList
+
+def sort_chars(charList):
+    sortedList = []
+    for char in charList:
+        if char.isalpha() == False:
+            continue
+        entry = {
+            "char": char,
+            "num": charList[char]
+        }
+        sortedList.append(entry)
+    sortedList.sort(reverse=True, key=sort_on)
+    return sortedList
+
+def sort_on(dict):
+    return dict["num"]
